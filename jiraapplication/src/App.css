@@ -1,0 +1,80 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /*column dediğimiz için y eksenine göre ortalamamız gerek*/
+}
+
+.task-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-ınput{
+    border-radius: 7px;
+    border: solid black;
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+    padding: 10px;
+}
+.form-text{
+    /*Burası biraz saçma oldu , tekrarlı yazdın düzelt burasını!*/
+    height: 100px;
+    width: 250px;
+}
+
+.button{
+    margin-top: 10px;
+    border-radius:5px;
+    height: 30px;
+    background-color: green;
+    color: white;
+    font-size: medium;
+}
+
+/*Her bir cart için bastıracağı için kart özelliklerini css de yaptık*/
+.task-show{
+    border: 2px solid green;
+    width: 250px;
+    height: 220px;
+    border-radius: 30px; /*kenarlıkları yuvarlama*/
+    display: flex; /*bir row boyunca sıralama o kartları*/
+    flex-direction: column; /*kolon boyu sıralar*/
+    align-items: center; /* y eksinine göre ortalama*/
+    padding: 30px;
+    margin: 30px; /*dört bir yanından boşluk bırakma*/
+}
+
+/*Listelenmiş taskları kapsadığından row sıralamasını ve ortalmasını yaptık*/
+ .task-list{
+    display: flex;
+    flex-wrap: wrap; /*row boyunca sıralama*/
+    justify-content: center; /*x eksenine göre ortalar*/
+}
+
+.task-delete{
+    margin-right: 10px;
+    border-radius: 7px;
+    border: none;
+    background: red;
+    color: white;
+    width: 50px;
+    font-size: 15px;
+    padding: 5px;
+    margin-top: 12px 
+}
+ 
+.task-update{
+    border-radius: 7px;
+    border: none;
+    width: 100px;
+    color: white;
+    background: blue;
+    font-size: 15px;
+    padding: 5px;
+    margin-top: 12px 
+}
+
+.task-title{
+    margin-bottom: 5px
+}
