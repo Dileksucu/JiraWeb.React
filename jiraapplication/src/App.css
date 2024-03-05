@@ -45,6 +45,11 @@
     margin: 30px; /*dört bir yanından boşluk bırakma*/
 }
 
+/* .task-ShowChange{
+    width: 100%;
+} */
+
+
 /*Listelenmiş taskları kapsadığından row sıralamasını ve ortalmasını yaptık*/
  .task-list{
     display: flex;
@@ -77,4 +82,16 @@
 
 .task-title{
     margin-bottom: 5px
+}
+
+.task-formUpdateText{
+    height: 50px;
+    width: 200px;
+}
+
+.task-button{
+    margin-top: 5px;
+    background-color: brown;
+    width: 200px;
+    margin-left: 25px
 }

@@ -1,16 +1,16 @@
 //Taskları yarattığımız component olacak.
 import {useState} from "react";
 
-function TaskCreate({onCreate}) {
+function TaskCreate({onCreate, createListTask, taskformUpdate, onUpdate}) {
 //TODO: 
     //burada propsu alıyoruz parametre olarak , title ve taskDesc
     //değerlerini app.js de console'a yazdırmak için.
 
-    const [title, setTitle] = useState('') //Bu kısım başlık altındaki ınput girilecek ve setlenecek kısım.
+    const [title, setTitle] = useState(createListTask ? createListTask.title : '') //Bu kısım başlık altındaki ınput girilecek ve setlenecek kısım.
     
     //camel case  yapısına uyumalı- bacekend gibi -->  setTaskDesc
     // burada Task giriniz ! kısmını setlemek için oluştruduğumuz bir state.
-    const [taskDesc, setTaskDesc] = useState('')
+    const [taskDesc, setTaskDesc] = useState(createListTask ? createListTask.taskDesc : '')
 
 
     // const temp = title.split(" ","-"); --> bak buna bi
@@ -34,8 +34,13 @@ function TaskCreate({onCreate}) {
     const handleSubmit=(event)=>{
         event.preventDefault()
         // button'a tıkladığım da sayfa yenilenmesini istemediğim de bu methodu kullanıyorum.
-         
-        onCreate(title,taskDesc);
+        
+        //taskformUpdate true olduğunda bu kısmı al .
+        if (taskformUpdate) {
+            onUpdate(createListTask.id, title, taskDesc);
+          } else {
+            onCreate(title, taskDesc);
+          }
         //onCreate-props ismi olacak ,burada girdiğimiz değerleri göndermemiz lazım 
         //bundan dolayı props üzerinden app.js'deki TaskCreate.js kısmına gönderiyorum. 
 
@@ -50,29 +55,60 @@ function TaskCreate({onCreate}) {
     };
 
     return (
-    <div >
-     <h2>Lütfen Task Ekleyiniz !</h2>
 
-     <form className="task-form" >
-        <label>Başlık</label>
-        <input 
-         value={title}
-         onChange={handleChange} 
-         className="form-ınput "/>
+        <div>
+        {taskformUpdate ? (
+            <div className="task-ShowChange">
+            <form className="task-form" >
+               <label>Başlığı Düzenleyiniz</label>
+               <input 
+                value={title}
+                onChange={handleChange} 
+                className="form-ınput "/>
+               
+               <label>Taskı Düzenleyiniz!</label>
+               <textarea 
+                value={taskDesc}
+                onChange={handleTaskChange} 
+                className="form-ınput form-text task-formUpdateText" /> 
+               {/* bu ınput yazımı uzun textlerde kullanılıyor  */}
+       
+               <button className="button task-button" onClick={handleSubmit}> 
+               Düzenleyiniz 
+               </button>
+       
+            </form>
+           </div> 
+        ) 
+        :(
+            <div >
+            <h2>Lütfen Task Ekleyiniz !</h2>
+       
+            <form className="task-form" >
+               <label>Başlık</label>
+               <input 
+                value={title}
+                onChange={handleChange} 
+                className="form-ınput "/>
+               
+               <label>Task Giriniz !</label>
+               <textarea 
+                value={taskDesc}
+                onChange={handleTaskChange} 
+                className="form-ınput form-text" /> 
+               {/* bu ınput yazımı uzun textlerde kullanılıyor  */}
+       
+               <button className="button" onClick={handleSubmit}> 
+               Oluştur 
+               </button>
+       
+            </form>
+           </div> 
+        ) 
+    }
         
-        <label>Task Giriniz !</label>
-        <textarea 
-         value={taskDesc}
-         onChange={handleTaskChange} 
-         className="form-ınput form-text" /> 
-        {/* bu ınput yazımı uzun textlerde kullanılıyor  */}
+        </div>
 
-        <button className="button" onClick={handleSubmit}> 
-        Oluştur 
-        </button>
-
-     </form>
-    </div> 
     );
 }
 

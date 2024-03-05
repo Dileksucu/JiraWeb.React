@@ -1,6 +1,12 @@
-function TaskShow({temp, onDelete}) {
+import { useState } from 'react';
+import TaskCreate from './TaskCreate';
+
+
+function TaskShow({temp, onDelete,onUpdate}) {
     //taskların oluşacağı cartlardaki değerleri burada basıyoruz.
    
+    const [update, setUpdate] = useState(false);
+
     const handleDeleteClick=()=>{
         //bu propsu tasklist'e kullanıcaz çünkü oradan alıyoruz task bilgilerini.
         onDelete(temp.id)
@@ -8,27 +14,50 @@ function TaskShow({temp, onDelete}) {
         //üst componentte yani TaskList'den erişmek için parametre olarak verdik.
     }
 
-    console.log(temp);
-    return <div className="task-show">
-        <h4 className="task-title">Göreviniz</h4>
-        <p>{temp.title}</p>
+    const handleUpdateClick=()=>{
+        setUpdate(!update); //true ise click butonuna bastığında düzenle
+    }
 
-        <h4 className ="task-title">Yapılacaklar</h4>
-        <p>{temp.taskDesc}</p>
+
+  const handleUpdateSubmit =(id, updatedTitle, updatedTaskDesc)=>{
+    setUpdate(false);
+    onUpdate(id, updatedTitle, updatedTaskDesc);
+  }
+
+  console.log(temp);
+
+    return (
+  <div className="task-show ">
+   {update ? 
+    (<TaskCreate 
+        createListTask={temp} 
+        taskformUpdate={true} 
+        onUpdate={handleUpdateSubmit}/>)
         
+  :(
+
     <div>
+    <h4 className="task-title">Göreviniz</h4>
+    <p>{temp.title}</p>
 
-        <button className="task-delete" onClick={handleDeleteClick}>
-            Sil
-        </button>
+    <h4 className ="task-title">Yapılacaklar</h4>
+    <p>{temp.taskDesc}</p>
+    
+     <div>
+       <button className="task-delete" onClick={handleDeleteClick}>
+        Sil
+       </button>
 
-        <button className="task-update">
-            Güncelle
+        <button className="task-update" onClick={handleUpdateClick}>
+        Güncelle
         </button>
-        
+    
+     </div>
+
     </div>
-
-    </div>;
+   )}
+     </div>);
+   
 }
 
 export default TaskShow;

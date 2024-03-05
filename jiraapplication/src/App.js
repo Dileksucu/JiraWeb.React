@@ -27,6 +27,7 @@ function App() {
     setTask(createdTask);
  };
 
+ //Delete buttonu işlemi için yazıldı.
  const deleteTaskById = (id) =>{
   // console.log(id); //id nasıl geliyor burada görmek için logladım.
   
@@ -43,12 +44,30 @@ function App() {
     setTask(mismatchedTaskİd);
  };
 
+ 
+//Update buttonu form işlemleri için yazıldı.
+ const updateTaskById = (id, updatedTitle, updatedTaskDesc) => {
+  const updatedTasks = task.map((task) => {
+    if (task.id === id) {
+      return { id, title: updatedTitle, taskDesc: updatedTaskDesc };
+    }
+    return task;
+  });
+  setTask(updatedTasks);
+};
+
+
 
   return (
     <div className="App">
       <TaskCreate onCreate={createTask}/>
       <h2>Görevler</h2>
-      <TaskList createListTask={task} deletedTask={deleteTaskById} />
+      <TaskList 
+      createListTask={task} 
+      deletedTask={deleteTaskById} 
+      onUpdateForm={updateTaskById}
+      
+      />
     </div>
   );
 }
