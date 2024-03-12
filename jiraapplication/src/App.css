@@ -45,11 +45,6 @@
     margin: 30px; /*dört bir yanından boşluk bırakma*/
 }
 
-/* .task-ShowChange{
-    width: 100%;
-} */
-
-
 /*Listelenmiş taskları kapsadığından row sıralamasını ve ortalmasını yaptık*/
  .task-list{
     display: flex;

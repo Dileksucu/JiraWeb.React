@@ -1,15 +1,20 @@
 import { useState } from 'react';
-import TaskCreate from './TaskCreate';
+import TaskCreate from '../Components/TaskCreate';
 
+import {useContext } from 'react';
+import TaskContext from '../Context/task'
 
-function TaskShow({temp, onDelete,onUpdate}) {
+function TaskShow({task}) {
     //taskların oluşacağı cartlardaki değerleri burada basıyoruz.
+
+    const{deleteTaskById,updateTaskById} = useContext(TaskContext);
    
     const [update, setUpdate] = useState(false);
 
     const handleDeleteClick=()=>{
         //bu propsu tasklist'e kullanıcaz çünkü oradan alıyoruz task bilgilerini.
-        onDelete(temp.id)
+        // onDelete(temp.id) --> bunun yerine contexteki fonskiyonu kullandık.
+        deleteTaskById(task.id);
         //Bu propsu function parametresi olarak veriyoruz ki 
         //üst componentte yani TaskList'den erişmek için parametre olarak verdik.
     }
@@ -21,27 +26,28 @@ function TaskShow({temp, onDelete,onUpdate}) {
 
   const handleUpdateSubmit =(id, updatedTitle, updatedTaskDesc)=>{
     setUpdate(false);
-    onUpdate(id, updatedTitle, updatedTaskDesc);
+    // onUpdate(id, updatedTitle, updatedTaskDesc);
+    updateTaskById(id,updatedTitle,updatedTaskDesc);
   }
 
-  console.log(temp);
+  // console.log(temp);
 
     return (
   <div className="task-show ">
    {update ? 
     (<TaskCreate 
-        createListTask={temp} 
+        task={task} 
         taskformUpdate={true} 
-        onUpdate={handleUpdateSubmit}/>)
+        onUpdate={handleUpdateSubmit}
+       />)
         
   :(
-
     <div>
     <h4 className="task-title">Göreviniz</h4>
-    <p>{temp.title}</p>
+    <p>{task.title}</p>
 
     <h4 className ="task-title">Yapılacaklar</h4>
-    <p>{temp.taskDesc}</p>
+    <p>{task.taskDesc}</p>
     
      <div>
        <button className="task-delete" onClick={handleDeleteClick}>
@@ -56,7 +62,8 @@ function TaskShow({temp, onDelete,onUpdate}) {
 
     </div>
    )}
-     </div>);
+     </div>
+     );
    
 }
 

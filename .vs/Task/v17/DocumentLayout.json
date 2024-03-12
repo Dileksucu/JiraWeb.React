@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Dilek Sucu\\Desktop\\Task\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dilek Sucu\\Desktop\\Task\\jiraapplication\\src\\Components\\TaskCreate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:jiraapplication\\src\\Components\\TaskCreate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dilek Sucu\\Desktop\\Task\\jiraapplication\\src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:jiraapplication\\src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dilek Sucu\\Desktop\\Task\\jiraapplication\\src\\Components\\TaskCreate.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:jiraapplication\\src\\Components\\TaskCreate.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -23,14 +35,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TaskCreate.js",
-              "DocumentMoniker": "C:\\Users\\Dilek Sucu\\Desktop\\Task\\jiraapplication\\src\\Components\\TaskCreate.js",
-              "RelativeDocumentMoniker": "jiraapplication\\src\\Components\\TaskCreate.js",
-              "ToolTip": "C:\\Users\\Dilek Sucu\\Desktop\\Task\\jiraapplication\\src\\Components\\TaskCreate.js",
-              "RelativeToolTip": "jiraapplication\\src\\Components\\TaskCreate.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "App.js",
+              "DocumentMoniker": "C:\\Users\\Dilek Sucu\\Desktop\\Task\\jiraapplication\\src\\App.js",
+              "RelativeDocumentMoniker": "jiraapplication\\src\\App.js",
+              "ToolTip": "C:\\Users\\Dilek Sucu\\Desktop\\Task\\jiraapplication\\src\\App.js",
+              "RelativeToolTip": "jiraapplication\\src\\App.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-03-04T16:43:05.977Z",
+              "WhenOpened": "2024-03-12T13:24:01.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TaskCreate.jsx",
+              "DocumentMoniker": "C:\\Users\\Dilek Sucu\\Desktop\\Task\\jiraapplication\\src\\Components\\TaskCreate.jsx",
+              "RelativeDocumentMoniker": "jiraapplication\\src\\Components\\TaskCreate.jsx",
+              "ToolTip": "C:\\Users\\Dilek Sucu\\Desktop\\Task\\jiraapplication\\src\\Components\\TaskCreate.jsx",
+              "RelativeToolTip": "jiraapplication\\src\\Components\\TaskCreate.jsx",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-03-12T13:23:53.467Z",
               "EditorCaption": ""
             }
           ]

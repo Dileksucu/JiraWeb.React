@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\jiraapplication",
-    "\\jiraapplication\\src",
-    "\\jiraapplication\\src\\Components"
+    "\\jiraapplication\\src"
   ],
-  "SelectedNode": "\\jiraapplication\\src\\Components\\TaskCreate.js",
+  "SelectedNode": "\\jiraapplication",
   "PreviewInSolutionExplorer": false
 }

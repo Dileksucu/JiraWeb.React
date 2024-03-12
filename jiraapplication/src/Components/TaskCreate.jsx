@@ -1,19 +1,26 @@
 //Taskları yarattığımız component olacak.
 import {useState} from "react";
 
-function TaskCreate({onCreate, createListTask, taskformUpdate, onUpdate}) {
+import { useContext } from "react";
+import TaskContext from "../Context/task";
+
+function TaskCreate({task, taskformUpdate,onUpdate}) {
+
+const{updateTaskById,createTask}=useContext(TaskContext);
+
 //TODO: 
     //burada propsu alıyoruz parametre olarak , title ve taskDesc
     //değerlerini app.js de console'a yazdırmak için.
-
-    const [title, setTitle] = useState(createListTask ? createListTask.title : '') //Bu kısım başlık altındaki ınput girilecek ve setlenecek kısım.
+    const [title, setTitle] = useState(task ? task.title : '') //Bu kısım başlık altındaki ınput girilecek ve setlenecek kısım.
     
     //camel case  yapısına uyumalı- bacekend gibi -->  setTaskDesc
     // burada Task giriniz ! kısmını setlemek için oluştruduğumuz bir state.
-    const [taskDesc, setTaskDesc] = useState(createListTask ? createListTask.taskDesc : '')
+    const [taskDesc, setTaskDesc] = useState(task ? task.taskDesc : '')
 
+    //Validation için oluşturdum bu stateleri 
+    const [erorrTitle, setErorrTitle] = useState("")
+    const [description, setDescription] = useState("")
 
-    // const temp = title.split(" ","-"); --> bak buna bi
 
   //TODO: BU KISIMA BİR BAK !
     //"onChange={handleChange}"- OnChange bir even'tir ve 
@@ -37,10 +44,21 @@ function TaskCreate({onCreate, createListTask, taskformUpdate, onUpdate}) {
         
         //taskformUpdate true olduğunda bu kısmı al .
         if (taskformUpdate) {
-            onUpdate(createListTask.id, title, taskDesc);
+            // onUpdate(createListTask.id, title, taskDesc);
+            onUpdate(task.id, title, taskDesc);
+
           } else {
-            onCreate(title, taskDesc);
-          }
+            if(title =="" && taskDesc==""){
+                setErorrTitle("bu alan boş bırakılamaz!");
+                setDescription("bu alan boş bırakılamaz!")
+                // alert(); //Boş stringse hata döndürmesi için kullandık.
+                //hata mesajı için hook gibi validation işlemleri yapmak için kütüphaneler var kullanabilirsin. 
+            }
+            else{
+                // onCreate(title, taskDesc); --> eski task kalsın yeni maplemeye gerek yok , onCreate fonskiyonuna bakabilirsin.
+                 createTask(title,taskDesc);
+            }
+        }
         //onCreate-props ismi olacak ,burada girdiğimiz değerleri göndermemiz lazım 
         //bundan dolayı props üzerinden app.js'deki TaskCreate.js kısmına gönderiyorum. 
 
@@ -49,28 +67,27 @@ function TaskCreate({onCreate, createListTask, taskformUpdate, onUpdate}) {
         
         //TODO: 
         //Burada asıl amaç button click olduğunda ilk önce onCreate ile verileri console al sonra içlerini boşalt !! 
-    
-    
-    
     };
 
     return (
 
         <div>
         {taskformUpdate ? (
-            <div className="task-ShowChange">
+            <div>
             <form className="task-form" >
                <label>Başlığı Düzenleyiniz</label>
                <input 
                 value={title}
                 onChange={handleChange} 
                 className="form-ınput "/>
-               
+            
+
                <label>Taskı Düzenleyiniz!</label>
                <textarea 
                 value={taskDesc}
                 onChange={handleTaskChange} 
                 className="form-ınput form-text task-formUpdateText" /> 
+             
                {/* bu ınput yazımı uzun textlerde kullanılıyor  */}
        
                <button className="button task-button" onClick={handleSubmit}> 
@@ -83,19 +100,20 @@ function TaskCreate({onCreate, createListTask, taskformUpdate, onUpdate}) {
         :(
             <div >
             <h2>Lütfen Task Ekleyiniz !</h2>
-       
             <form className="task-form" >
                <label>Başlık</label>
-               <input 
+               <input style={{border: erorrTitle != "" &&  "1px solid red"}}
                 value={title}
                 onChange={handleChange} 
                 className="form-ınput "/>
+                <span style={{color:"red"}}>{erorrTitle == "" ? " " : erorrTitle} </span>
                
                <label>Task Giriniz !</label>
                <textarea 
                 value={taskDesc}
                 onChange={handleTaskChange} 
                 className="form-ınput form-text" /> 
+                <span style= {{color:"red" }}>{description == "" ? "" : description} </span>
                {/* bu ınput yazımı uzun textlerde kullanılıyor  */}
        
                <button className="button" onClick={handleSubmit}> 

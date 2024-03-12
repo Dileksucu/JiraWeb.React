@@ -1,0 +1,29 @@
+{
+  "task": [
+    {
+      "title": "Frontend",
+      "taskDesc": "Axios ile APİ isteği atmalısın\n",
+      "id": "a8e3"
+    },
+    {
+      "title": "Backend",
+      "taskDesc": "Identity Kütüphanesine bak ve entegre et !",
+      "id": "4344"
+    },
+    {
+      "id": "e82d",
+      "title": "Frontend",
+      "taskDesc": "Context APİ'yi projene entegresi yapılacak."
+    },
+    {
+      "id": "5ee3",
+      "title": "Frontend",
+      "taskDesc": "Context APİ geçiş "
+    },
+    {
+      "title": "Backend ",
+      "taskDesc": "CRUD işlemlerinin APİ'lerini yazmalısın.\n",
+      "id": "eb98"
+    }
+  ]
+}
